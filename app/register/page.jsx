@@ -2,11 +2,20 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Register = () => {
-  const [error, setError] = useState('');
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const [error, setError] = useState({});
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
+
   const isValidEmail = (email) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     return emailRegex.test(email);
@@ -15,45 +24,57 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const name = e.target[0].value;
-    const email = e.target[1].value;
-    const password = e.target[2].value;
-
-    if (!isValidEmail(email)) {
-      setError('Invalid email');
+    if (user.name.length < 2) {
+      setError((prevErrors) => ({
+        ...prevErrors,
+        name: 'Name must be at least 2 characters long',
+      }));
       return;
     }
 
-    if (!password || password.length < 8) {
-      setError('Invalid password');
+    if (!isValidEmail(user.email)) {
+      setError((prevErrors) => ({ ...prevErrors, email: 'Invalid email' }));
+      return;
+    }
+
+    if (user.password.length < 8) {
+      setError((prevErrors) => ({
+        ...prevErrors,
+        password: 'Password must be at least 8 characters long',
+      }));
       return;
     }
 
     try {
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-        }),
-      });
+      setLoading(true);
+      const response = await axios.post('/api/register', user);
 
-      if (response === 400) {
-        setError('Email  already in use.');
+      if (response.status === 400) {
+        setError((prevErrors) => ({ ...prevErrors, email: 'Invalid email' }));
       }
+
       if (response.status === 200) {
-        setError('');
+        setError({});
         router.push('/login');
       }
     } catch (error) {
-      setError('Try again.');
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (
+      user.name.length > 0 &&
+      user.email.length > 0 &&
+      user.password.length > 0
+    ) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [user]);
 
   return (
     <div>
@@ -62,8 +83,15 @@ const Register = () => {
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">
             Name
-            <input type="text" id="name" name="name" className="text-black" />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="text-black"
+              onChange={(e) => setUser({ ...user, name: e.target.value })}
+            />
           </label>
+          {error.name && <p>{error.name}</p>}
           <label htmlFor="email">
             Email
             <input
@@ -71,8 +99,10 @@ const Register = () => {
               id="email"
               name="email"
               className="text-black"
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
             />
           </label>
+          {error.email && <p>{error.email}</p>}
           <label htmlFor="password">
             Password
             <input
@@ -80,9 +110,13 @@ const Register = () => {
               id="password"
               name="password"
               className="text-black"
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
             />
           </label>
-          <button type="submit">Register</button>
+          {error.password && <p>{error.password}</p>}
+          <button type="submit">
+            {buttonDisabled ? 'Loading...' : 'Sign up'}
+          </button>
         </form>
         <p>
           Already a user? <Link href="/login">Log in!</Link>
