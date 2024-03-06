@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
-import { CredentialsProvider } from 'next-auth/providers/credentials';
+import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import User from '@models/User';
 import connect from '@utils/database';
@@ -38,3 +38,6 @@ export const authOptions = {
     }),
   ],
 };
+
+export const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
