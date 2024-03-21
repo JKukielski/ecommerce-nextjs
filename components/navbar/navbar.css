@@ -14,6 +14,7 @@
     display: flex;
     align-items: center;
     flex: 1;
+    cursor: pointer;
 }
 
 .navbar-logo-icon {
@@ -28,6 +29,10 @@
     flex: 1;
     font-size: 28px;
     gap: 30px;
+}
+
+.navbar-icon, .navbar-category {
+    cursor: pointer;
 }
 
 .navbar-container-bottom {
@@ -71,7 +76,9 @@
     }
 
     .navbar-categories {
-        gap: 80px;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 10px;
     }
 
     .navbar-search-container {
