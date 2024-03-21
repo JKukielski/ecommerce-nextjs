@@ -1,0 +1,33 @@
+.navbar-search-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.navbar-search-input {
+    width: 325px;
+    padding: 10px;
+}
+
+.navbar-search-icon {
+    font-size: 24px;
+    position: absolute;
+    right: 4px;
+    top: 8px;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-search-container {
+        justify-content: center;
+        margin-top: 2px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .navbar-search-input {
+        width: 300px;
+        padding: 8px;
+    }
+}

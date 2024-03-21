@@ -1,5 +1,6 @@
-import { BiHeart, BiUser, BiCart, BiSearch, BiPackage } from 'react-icons/bi';
+import { BiHeart, BiUser, BiCart, BiPackage } from 'react-icons/bi';
 import './navbar.css';
+import SearchInput from '@components/searchInput/SearchInput';
 
 const Navbar = () => {
   return (
@@ -21,14 +22,7 @@ const Navbar = () => {
           <li className="navbar-category">Woman</li>
           <li className="navbar-category">Accessories</li>
         </ul>
-        <div className="navbar-search-container">
-          <input
-            className="navbar-search-input"
-            type="text"
-            placeholder="Search..."
-          />
-          <BiSearch className="navbar-search-icon" />
-        </div>
+        <SearchInput />
       </div>
     </div>
   );
