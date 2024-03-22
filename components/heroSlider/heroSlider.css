@@ -1,0 +1,23 @@
+.slider-container {
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+    height: calc(100vh - 160px);
+}
+
+.embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+.slider-img-container {
+    position: relative;
+    width: 50%;
+    height: 50%;
+}
+
+.slider-img-container img {
+    object-fit: contain;
+}
