@@ -14,14 +14,30 @@ const HeroSlider = () => {
     <div className="slider-container" ref={emblaRef}>
       <div className="embla__container">
         {heroData.map((slide, index) => (
-          <div className="embla__slide" key={index}>
+          <div
+            className="embla__slide"
+            key={index}
+            style={{
+              backgroundColor: slide.backgroundColor,
+              color: slide.textColor,
+            }}
+          >
             <div className="slider-img-container">
-              <Image src={slide.url} alt="" fill />
+              <Image src={slide.url} alt="" width={500} height={500} />
             </div>
             <div className="slide-text-container">
               <h1 className="slide-title">{slide.title}</h1>
               <p className="slide-desc">{slide.desc}</p>
-              <Link href="/">SHOP NOW</Link>
+              <Link
+                className="slide-link"
+                href="/"
+                style={{
+                  backgroundColor: slide.textColor,
+                  color: slide.backgroundColor,
+                }}
+              >
+                SHOP NOW
+              </Link>
             </div>
           </div>
         ))}
