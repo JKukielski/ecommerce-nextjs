@@ -21,3 +21,24 @@ export const heroData = [
     textColor: '#000',
   },
 ];
+
+export const recommendedProducts = [
+  {
+    url: '/mens-black-coat.jpg',
+    name: `Men's designer winter coat`,
+    desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque voluptate suscipit non nostrum! Numquam facilis dolor consequuntur quia laudantium',
+    price: 129.99,
+  },
+  {
+    url: '/cherry-womens-sweater.jpg',
+    name: `Women's cherry sweater`,
+    desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque voluptate suscipit non nostrum! Numquam facilis dolor consequuntur quia laudantium',
+    price: 59.99,
+  },
+  {
+    url: '/mens-leather-jacket.jpg',
+    name: `Men's black leather jacket`,
+    desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos atque voluptate suscipit non nostrum! Numquam facilis dolor consequuntur quia laudantium',
+    price: 189.99,
+  },
+];
