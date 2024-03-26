@@ -1,0 +1,27 @@
+.rec-product-card {
+    width: 350px;
+    height: 450px;
+    position: relative;
+    cursor: pointer;
+}
+
+.rec-product-fav-icon-container {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 6px;
+    background-color: white;
+}
+
+.rec-product-fav-icon {
+    font-size: 26px;
+}
+
+.rec-product-card-text-container {
+    text-align: left;
+    padding: 15px;
+}
+
+.rec-product-card-name {
+    margin-bottom: 15px;
+}
