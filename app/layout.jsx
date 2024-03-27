@@ -1,6 +1,7 @@
 import { Roboto } from 'next/font/google';
 import './globals.css';
 import Navbar from '@components/navbar/Navbar';
+import Footer from '@components/footer/Footer';
 
 export const metadata = {
   title: 'Create Next App',
@@ -18,6 +19,7 @@ export default async function RootLayout({ children }) {
       <body className={`${roboto.className} font-sans`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
