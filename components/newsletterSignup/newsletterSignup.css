@@ -1,21 +1,24 @@
 .newsletter-container {
     text-align: center;
+    background-color: black;
+    padding: 40px 0;
 }
 
 .newsletter-heading {
     margin-bottom: 20px;
+    color: white;
 }
 
 .newsletter-input {
-    width: 325px;
+    width: 60%;
     padding: 10px;
     margin-right: 20px;
+    border: none;
 }
 
 .newsletter-cta {
     padding: 10px;
-    background-color: black;
-    color: white;
+    background-color: white;
     font-family: inherit;
     border: none;
 }

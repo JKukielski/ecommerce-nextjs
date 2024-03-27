@@ -1,6 +1,6 @@
 .rec-container {
     text-align: center;
-    padding: 40px;
+    padding-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +9,7 @@
 .rec-content {
     display: flex;
     justify-content: space-around;
-    padding: 40px;
+    padding-top: 40px;
     flex-wrap: wrap;
     gap: 40px;
 }
