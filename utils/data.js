@@ -9,7 +9,7 @@ export const heroData = [
   {
     url: '/womensHero.jpg',
     title: `Latest Women's Collection`,
-    desc: `Take a look out our latest collection of men's clothing`,
+    desc: `Take a look out our latest collection of women's clothing`,
     backgroundColor: '#e0aaff',
     textColor: '#FFF',
   },
