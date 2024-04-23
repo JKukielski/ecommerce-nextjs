@@ -1,0 +1,18 @@
+.navbar-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    font-size: 28px;
+    gap: 30px;
+}
+
+.navbar-icon {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 376px) {
+    .navbar-icon-container {
+        gap: 15px;
+    }
+}
