@@ -1,9 +1,14 @@
+import { handleGoogleLogin } from '@utils/actions';
 import './login.css';
+import { auth } from '@utils/auth';
 
-const LoginPage = () => {
+const LoginPage = async () => {
+  const session = await auth();
+  console.log(session);
+
   return (
     <div className="login-container">
-      <form action="">
+      <form action={handleGoogleLogin}>
         <button>Login with Google</button>
       </form>
       <form action="">

@@ -1,3 +1,5 @@
+import { signIn, signOut } from './auth';
+
 export const handleGoogleLogin = async (e) => {
   'use server';
   await signIn('google');
@@ -5,5 +7,5 @@ export const handleGoogleLogin = async (e) => {
 
 export const handleGoogleLogout = async (e) => {
   'use server';
-  await signOut();
+  await signOut('google');
 };
