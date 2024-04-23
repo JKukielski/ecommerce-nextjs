@@ -1,8 +1,11 @@
 import { BiHeart, BiUser, BiCart, BiPackage } from 'react-icons/bi';
 import './navbar.css';
 import SearchInput from '@components/searchInput/SearchInput';
+import Links from './links/links';
+import { auth } from '@utils/auth';
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await auth();
   return (
     <div className="navbar-container">
       <div className="navbar-container-top">
@@ -10,11 +13,7 @@ const Navbar = () => {
           <BiPackage className="navbar-logo-icon" />
           <h1 className="navbar-logo-text">SHOPPER</h1>
         </div>
-        <div className="navbar-icon-container">
-          <BiUser className="navbar-icon" />
-          <BiHeart className="navbar-icon" />
-          <BiCart className="navbar-icon" />
-        </div>
+        <Links session={session} />
       </div>
       <div className="navbar-container-bottom">
         <ul className="navbar-categories">

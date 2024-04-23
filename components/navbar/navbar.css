@@ -22,16 +22,7 @@
     margin-right: 10px;
 }
 
-.navbar-icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex: 1;
-    font-size: 28px;
-    gap: 30px;
-}
-
-.navbar-icon, .navbar-category {
+.navbar-category {
     cursor: pointer;
 }
 
@@ -92,9 +83,6 @@
         padding: 15px;
     }
 
-    .navbar-icon-container {
-        gap: 15px;
-    }
     .navbar-categories {
         gap: 60px;
     }
