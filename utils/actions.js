@@ -15,7 +15,7 @@ export const handleGoogleLogout = async (e) => {
   await signOut('google');
 };
 
-export const register = async (formData) => {
+export const register = async (prevState, formData) => {
   const { full_name, email, username, password } = Object.fromEntries(formData);
 
   try {
@@ -23,7 +23,7 @@ export const register = async (formData) => {
     const user = await User.findOne({ username });
 
     if (user) {
-      return 'Username already exists.';
+      return { error: 'Username already exists.' };
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -38,7 +38,20 @@ export const register = async (formData) => {
 
     await newUser.save();
     console.log('New user saved to DB');
+    return { success: true };
   } catch (error) {
     console.log(error);
+    return { error: 'Something went wrong.' };
+  }
+};
+
+export const login = async (prevState, formData) => {
+  const { username, password } = Object.fromEntries(formData);
+
+  try {
+    await signIn('credentials', { username, password });
+  } catch (error) {
+    console.log(error);
+    return { error: 'Something went wrong.' };
   }
 };
