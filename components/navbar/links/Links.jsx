@@ -13,10 +13,12 @@ const Links = ({ session }) => {
       <BiCart className="navbar-icon" />
       {session?.user ? (
         <form action={handleGoogleLogout}>
-          <button>Logout</button>
+          <button className="navbar-log-btn">Logout</button>
         </form>
       ) : (
-        <Link href="/login">Login</Link>
+        <Link href="/login" className="navbar-log-btn">
+          Login
+        </Link>
       )}
     </div>
   );

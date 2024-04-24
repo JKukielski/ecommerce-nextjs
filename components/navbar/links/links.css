@@ -11,6 +11,16 @@
     cursor: pointer;
 }
 
+.navbar-log-btn {
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 376px) {
     .navbar-icon-container {
         gap: 15px;
