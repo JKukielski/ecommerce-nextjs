@@ -16,8 +16,13 @@ const LoginPage = async () => {
           </button>
         </form>
         <form action="" className="login-credentials-form">
-          <input type="text" className="" placeholder="Username" />
-          <input type="password" placeholder="Password" />
+          <input
+            type="text"
+            className=""
+            placeholder="Username"
+            name="username"
+          />
+          <input type="password" placeholder="Password" name="password" />
 
           <div className="login-form-btn-container">
             <button>Sign in</button>
