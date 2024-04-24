@@ -1,7 +1,31 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
+import CredentialsProvider from 'next-auth/providers/credentials';
 import { connectToDb } from './database';
 import User from '@models/User';
+
+const login = async (credentials) => {
+  try {
+    connectToDb();
+    const user = await User.findOne({ username: credentials.username });
+    if (!user) {
+      throw new Error('Incorrect credentials');
+    }
+
+    const isPasswordCorrect = await bcrypt.compare(
+      credentials.password,
+      user.password
+    );
+    if (!isPasswordCorrect) {
+      throw new Error('Incorrect credentials');
+    }
+
+    return user;
+  } catch (error) {
+    console.log(error);
+    throw new Error('Failed to log in');
+  }
+};
 
 export const {
   handlers: { GET, POST },
@@ -13,6 +37,16 @@ export const {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    CredentialsProvider({
+      async authorize(credentials) {
+        try {
+          const user = await login(credentials);
+          return user;
+        } catch (error) {
+          return null;
+        }
+      },
     }),
   ],
   callbacks: {
