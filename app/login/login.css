@@ -37,34 +37,3 @@
     font-size: 28px;
 }
 
-.login-credentials-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-}
-
-.login-credentials-form input{
-    width: 100%;
-    padding: 15px 12px;
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    background-color: rgb(245, 245, 245);
-}
-
-.login-form-btn-container {
-    width: 100%;
-    text-align: center;
-}
-
-.login-form-btn-container button {
-    width: 100%;
-    padding: 10px 15px;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-}

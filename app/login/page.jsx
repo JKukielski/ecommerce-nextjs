@@ -1,7 +1,8 @@
-import { handleGoogleLogin } from '@utils/actions';
+import { handleGoogleLogin, login } from '@utils/actions';
 import './login.css';
 import { auth } from '@utils/auth';
 import { FcGoogle } from 'react-icons/fc';
+import LoginForm from '@components/loginForm/LoginForm';
 
 const LoginPage = async () => {
   const session = await auth();
@@ -15,19 +16,7 @@ const LoginPage = async () => {
             <FcGoogle className="login-google-icon" /> Sign in with Google
           </button>
         </form>
-        <form action="" className="login-credentials-form">
-          <input
-            type="text"
-            className=""
-            placeholder="Username"
-            name="username"
-          />
-          <input type="password" placeholder="Password" name="password" />
-
-          <div className="login-form-btn-container">
-            <button>Sign in</button>
-          </div>
-        </form>
+        <LoginForm />
       </div>
     </div>
   );
