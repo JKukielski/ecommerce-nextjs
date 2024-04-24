@@ -1,6 +1,6 @@
-import { handleGoogleLogin, register } from '@utils/actions';
 import './register.css';
 import { FcGoogle } from 'react-icons/fc';
+import RegisterForm from '@components/registerForm/RegisterForm';
 
 const RegisterPage = () => {
   return (
@@ -12,21 +12,7 @@ const RegisterPage = () => {
             <FcGoogle className="register-google-icon" /> Sign in with Google
           </button>
         </form>
-        <form action={register} className="register-credentials-form">
-          <input
-            type="text"
-            className=""
-            placeholder="Full Name"
-            name="full_name"
-          />
-          <input type="email" placeholder="Email" name="email" />
-          <input type="text" placeholder="Username" name="username" />
-          <input type="password" placeholder="Password" name="password" />
-
-          <div className="register-form-btn-container">
-            <button>Sign in</button>
-          </div>
-        </form>
+        <RegisterForm />
       </div>
     </div>
   );
